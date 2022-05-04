@@ -1,3 +1,4 @@
+#pragma warning(disable:4996)
 /*use_new.cpp
 #include <iostream>
 int main() {
