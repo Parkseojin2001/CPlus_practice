@@ -33,7 +33,7 @@ int main() {
 	delete[]p3;
 	return 0;
 }*/
-//addpntrs.cpp
+/*addpntrs.cpp
 #include <iostream>
 int main() {
 	using namespace std;
@@ -58,5 +58,30 @@ int main() {
 
 	cout << sizeof(wages) << " = wages array size\n";
 	cout << sizeof(pw) << " = pw pointer size\n";
+	return 0;
+}*/
+//ptrstr.cpp
+#include <iostream>
+#include <cstring>
+int main() {
+	using namespace std;
+	char animal[20] = "bear";
+	const char* bird = "wren";
+	char* ps;
+	cout << animal << " and ";
+	cout << bird << "\n";
+	cout << "Input animal type: ";
+	cin >> animal;
+	ps = animal;
+	cout << ps << "s!\n";
+	cout << "strcpy() before:\n";
+	cout << (int*)animal << ": " << animal << endl;
+	cout << (int*)ps << ": " << ps << endl;
+	ps = new char[strlen(animal) + 1];
+	strcpy(ps, animal);
+	cout << "strcpy() after:\n";
+	cout << (int*)animal << ": " << animal << endl;
+	cout << (int*)animal << ": " << ps << endl;
+	delete[]ps;
 	return 0;
 }
