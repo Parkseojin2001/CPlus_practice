@@ -1,20 +1,15 @@
-//use_new.cpp
+//arraynew.cpp
 #include <iostream>
 int main() {
 	using namespace std;
-	int nights = 1001;
-	int* pt = new int;
-	*pt = 1001;
-	cout << "night value = ";
-	cout << nights << ": memory location " << &nights << endl;
-	cout << "int type ";
-	cout << "value = " << *pt << ": memory location = " << pt << endl;
-	double* pd = new double;
-	*pd = 1000001.0;
-	cout << "double type";
-	cout << "value = " << *pd << ":memory location = " << pd << endl;
-	cout << "pt size = " << sizeof(*pt) << endl;
-	cout << "pd size = " << sizeof pd;
-	cout << ": *pd size = " << sizeof(*pd) << endl;
+	double* p3 = new double[3];
+	p3[0] = 0.2;
+	p3[1] = 0.5;
+	p3[2] = 0.8;
+	cout << "p3[1] is " << p3[1] << endl;
+	p3 = p3 + 1;
+	cout << "Now, p3[0] is " << p3[0] << endl;
+	p3 = p3 - 1;
+	delete[]p3;
 	return 0;
 }
