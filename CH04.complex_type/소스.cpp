@@ -1,22 +1,26 @@
 #pragma warning(disable:4996)
-//mixtypes.cpp
+//choices.cpp
 #include <iostream>
-struct antarctica_years_end {
-	int year;
-};
+#include <vector>
+#include<array>
 int main() {
-	antarctica_years_end s01, s02, s03;
-	s01.year = 1998;
-	antarctica_years_end* pa = &s02;
-	pa->year = 1999;
-	antarctica_years_end trio[3];
-	trio[0].year = 2003;
-	std::cout << trio->year << std::endl;
-	const antarctica_years_end* arp[3] = { &s01,&s02,&s03 };
-	std::cout << arp[1]->year << std::endl;
-	const antarctica_years_end** ppa = arp;
-	auto ppb = arp;
-	std::cout << (*ppa)->year << std::endl;
-	std::cout << (*(ppb + 1))->year << std::endl;
+	using namespace std;
+	double a1[4] = { 1.2,2.4,3.6,4.8 };
+	vector<double>a2(4);
+	a2[0] = 1.0 / 3.0;
+	a2[1] = 1.0 / 5.0;
+	a2[2] = 1.0 / 7.0;
+	a2[3] = 1.0 / 9.0;
+	array<double, 4>a3 = { 3.14,2.72,1.62,1.41 };
+	array<double, 4>a4;
+	a4 = a3;
+	cout << "a1[2]: " << a1[2] << " at " << &a1[2] << endl;
+	cout << "a2[2]: " << a2[2] << " at " << &a2[2] << endl;
+	cout << "a3[2]: " << a3[2] << " at " << &a3[2] << endl;
+	cout << "a4[2]: " << a4[2] << " at " << &a4[2] << endl;
+	a1[-2] = 20.2;
+	cout << "a1[-2]: " << a1[-2] << " at " << &a1[-2] << endl;
+	cout << "a3[2]: " << a3[2] << " at " << &a3[2] << endl;
+	cout << "a4[2]: " << a4[2] << " at " << &a4[2] << endl;
 	return 0;
 }
