@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-//Quiz 7
+//Quiz 8
 using namespace std;
 struct pizza {
 	string BrandName;
@@ -10,15 +10,16 @@ struct pizza {
 	double weight;
 };
 int main() {
-	pizza menu;
-	cout << "Company name: ";
-	getline(cin, menu.BrandName);
+	pizza *menu = new pizza;
 	cout << "Pizza diameter: ";
-	cin >> menu.diameter;
+	cin >> menu->diameter;
+	cin.get();
+	cout << "Company name: ";
+	getline(cin, menu->BrandName);
 	cout << "Pizza weight: ";
-	cin >> menu.weight;
-	cout << menu.BrandName << endl
-		<< menu.diameter << endl
-		<< menu.weight<<endl;
+	cin >> menu->weight;
+	cout << menu->BrandName << endl
+		<< menu->diameter << endl
+		<< menu->weight<<endl;
 	return 0;
 }
