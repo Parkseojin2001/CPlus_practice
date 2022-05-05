@@ -1,44 +1,16 @@
 #pragma warning(disable:4996)
 #include <iostream>
-#include <cstring>
-#include <string>
-//Quiz 9
-using namespace std;
-struct CandyBar {
-	string BrandName;
-	double weight;
-	int cal;
-};
+#include<array>
+//Quiz 10
 int main() {
-	CandyBar *snack = new CandyBar[3];
-	cout << "Enter Brand Name: ";
-	getline(cin, snack->BrandName);
-	cout << "Enter Weight: ";
-	cin >> snack->weight;
-	cout << "Enter cal: ";
-	cin >> snack->cal;
-	cin.get();
-	cout << "Enter Brand Name: ";
-	getline(cin, (snack+1)->BrandName);
-	cout << "Enter Weight: ";
-	cin >> (snack+1)->weight;
-	cout << "Enter cal: ";
-	cin >> (snack+1)->cal;
-	cin.get();
-	cout << "Enter Brand Name: ";
-	getline(cin, (snack+2)->BrandName);
-	cout << "Enter Weight: ";
-	cin >> (snack+2)->weight;
-	cout << "Enter cal: ";
-	cin >> (snack+2)->cal;
-	cout << snack[0].BrandName << endl
-		<< snack[0].weight << endl
-		<< snack[0].cal << endl;
-	cout << snack[1].BrandName << endl
-		<< snack[1].weight << endl
-		<< snack[1].cal<<endl;
-	cout << snack[2].BrandName << endl
-		<< snack[2].weight << endl
-		<< snack[2].cal;
+	using namespace std;
+	array<double, 3> record;
+	cout << "#1 : ";
+	cin >> record[0];
+	cout << "#2 : ";
+	cin >> record[1];
+	cout << "#3 : ";
+	cin >> record[2];
+	cout << "Avg: " << (record[0] + record[1] + record[2]) / 3 << endl;
 	return 0;
 }
