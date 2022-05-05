@@ -2,23 +2,23 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-//Quiz 6
+//Quiz 7
 using namespace std;
-struct CandyBar {
+struct pizza {
 	string BrandName;
+	double diameter;
 	double weight;
-	int cal;
 };
 int main() {
-	CandyBar snack;
-	cout << "Enter Brand Name: ";
-	getline(cin, snack.BrandName);
-	cout << "Enter Weight: ";
-	cin >> snack.weight;
-	cout << "Enter cal: ";
-	cin >> snack.cal;
-	cout << snack.BrandName << endl
-		<< snack.weight << endl
-		<< snack.cal;
+	pizza menu;
+	cout << "Company name: ";
+	getline(cin, menu.BrandName);
+	cout << "Pizza diameter: ";
+	cin >> menu.diameter;
+	cout << "Pizza weight: ";
+	cin >> menu.weight;
+	cout << menu.BrandName << endl
+		<< menu.diameter << endl
+		<< menu.weight<<endl;
 	return 0;
 }
