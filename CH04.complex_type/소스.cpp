@@ -1,23 +1,24 @@
 #pragma warning(disable:4996)
-//newstrct.cpp
+//delete.cpp
 #include <iostream>
-struct inflatable {
-	char name[20];
-	float volume;
-	double price;
-};
+#include <cstring>
+using namespace std;
+char* getname(void);
 int main() {
-	using namespace std;
-	inflatable* ps = new inflatable;
-	cout << "Enter the name of the model ballon: ";
-	cin.get(ps->name, 20);
-	cout << "Enter the volume in cubic feet: ";
-	cin >> (*ps).volume;
-	cout << "Enter the price in dollars: $";
-	cin >> ps->price;
-	cout << "Name: " << (*ps).name << endl;
-	cout << "Volume: " << ps->volume << " cubic feet\n";
-	cout << "Price: $" << ps->price << endl;
-	delete ps;
+	char* name;
+	name = getname();
+	cout << (int*)name << ": " << name << "\n";
+	delete[]name;
+	name = getname();
+	cout << (int*)name << ": " << name << "\n";
+	delete[]name;
 	return 0;
+}
+char* getname() {
+	char temp[80];
+	cout << "Enter your name: ";
+	cin >> temp;
+	char* pn = new char[strlen(temp) + 1];
+	strcpy(pn, temp);
+	return pn;
 }
