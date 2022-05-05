@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-//Quiz 5
+//Quiz 6
 using namespace std;
 struct CandyBar {
 	string BrandName;
@@ -10,11 +10,13 @@ struct CandyBar {
 	int cal;
 };
 int main() {
-	CandyBar snack = {
-		"Mocha Munch",
-		2.3,
-		350
-	};
+	CandyBar snack;
+	cout << "Enter Brand Name: ";
+	getline(cin, snack.BrandName);
+	cout << "Enter Weight: ";
+	cin >> snack.weight;
+	cout << "Enter cal: ";
+	cin >> snack.cal;
 	cout << snack.BrandName << endl
 		<< snack.weight << endl
 		<< snack.cal;
