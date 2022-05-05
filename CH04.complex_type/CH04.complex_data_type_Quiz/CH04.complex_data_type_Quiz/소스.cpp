@@ -2,15 +2,21 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-//Quiz 4
+//Quiz 5
+using namespace std;
+struct CandyBar {
+	string BrandName;
+	double weight;
+	int cal;
+};
 int main() {
-	using namespace std;
-	string first, last, full;
-	cout << "Enter your first name: ";
-	getline(cin, first);
-	cout << "Enter your last name: ";
-	getline(cin, last);
-	full = last + ", " + first;
-	cout << "If you make it into a single string: " << full << endl;
+	CandyBar snack = {
+		"Mocha Munch",
+		2.3,
+		350
+	};
+	cout << snack.BrandName << endl
+		<< snack.weight << endl
+		<< snack.cal;
 	return 0;
 }
