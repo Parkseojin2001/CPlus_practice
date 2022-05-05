@@ -1,17 +1,16 @@
 #pragma warning(disable:4996)
 #include <iostream>
 #include <cstring>
-//Quiz3
+#include <string>
+//Quiz 4
 int main() {
 	using namespace std;
-	char first[20],last[20],full[40];
+	string first, last, full;
 	cout << "Enter your first name: ";
-	cin.getline(first, 20);
+	getline(cin, first);
 	cout << "Enter your last name: ";
-	cin.getline(last, 20);
-	strcpy(full, last);
-	strcat(full, ", ");
-	strcat(full, first);
+	getline(cin, last);
+	full = last + ", " + first;
 	cout << "If you make it into a single string: " << full << endl;
 	return 0;
 }
