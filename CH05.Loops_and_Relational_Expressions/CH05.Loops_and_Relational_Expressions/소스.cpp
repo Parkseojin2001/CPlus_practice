@@ -1,16 +1,16 @@
 #pragma warning(disable:4996)
-//formore.cpp
+//bigstep.cpp
 #include <iostream>
-const int ArSize = 16;
 int main() {
-	using namespace std;
-	long long factorials[ArSize];
-	factorials[1] = factorials[0] = 1;
-	for (int i = 2; i < ArSize; i++) {
-		factorials[i] = i * factorials[i - 1];
-	}
-	for (int i = 0; i < ArSize; i++) {
-		std::cout << i << "! = " << factorials[i] << std::endl;
+	using std::cout;
+	using std::cin;
+	using std::endl;
+	cout << "Enter an integer: ";
+	int by;
+	cin >> by;
+	cout << "Update size " << by << "s:\n";
+	for (int i = 0; i < 100; i = i + by) {
+		cout << i << endl;
 	}
 	return 0;
 }
