@@ -1,16 +1,15 @@
 #pragma warning(disable:4996)
-//bigstep.cpp
+//forstr1.cpp
 #include <iostream>
+#include<string>
 int main() {
-	using std::cout;
-	using std::cin;
-	using std::endl;
-	cout << "Enter an integer: ";
-	int by;
-	cin >> by;
-	cout << "Update size " << by << "s:\n";
-	for (int i = 0; i < 100; i = i + by) {
-		cout << i << endl;
+	using namespace std;
+	cout << "Enter one word: ";
+	string word;
+	cin >> word;
+	for (int i = word.size() - 1; i >= 0; i--) {
+		cout << word[i];
 	}
+	cout << "\nEnd\n";
 	return 0;
 }
