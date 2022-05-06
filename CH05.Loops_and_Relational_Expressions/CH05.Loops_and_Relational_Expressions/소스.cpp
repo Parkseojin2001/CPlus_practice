@@ -1,16 +1,14 @@
 #pragma warning(disable:4996)
-//waiting.cpp
+//dowhile.cpp
 #include <iostream>
-#include <ctime>
 int main() {
 	using namespace std;
-	cout << "Enter the delay time in seconds: ";
-	float secs;
-	cin >> secs;
-	clock_t delay = secs * CLOCKS_PER_SEC;
-	cout << "Start counting.\a\n";
-	clock_t start = clock();
-	while (clock() - start < delay);
-	cout << "End\a\n";
+	int n;
+	cout << "From 1 to 10 ";
+	cout << " Guesss my favorite number.\n";
+	do {
+		cin >> n;
+	} while (n != 7);
+	cout << "Correct. My favorite number is lucky seven 7\n";
 	return 0;
 }
