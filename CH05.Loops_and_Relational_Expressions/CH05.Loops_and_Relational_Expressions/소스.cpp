@@ -1,19 +1,20 @@
 #pragma warning(disable:4996)
-//forstr2.cpp
+//equal.cpp
 #include <iostream>
 #include<string>
 int main() {
 	using namespace std;
-	cout << "Enter a word: ";
-	string word;
-	cin >> word;
-	char temp;
-	int i, j;
-	for (j = 0, i = word.size() - 1; j < i; --i, ++j) {
-		temp = word[i];
-		word[i] = word[j];
-		word[j] = temp;
+	int quizscores[10] = { 20,20,20,20,20,19,20,18,20,20 };
+	cout << "Correct method:\n";
+	int i;
+	for (i = 0; quizscores[i] == 20; i++) {
+		cout << i << "Quiz score is 20.\n";
 	}
-	cout << word << "\nEnd.\n";
+	/*
+	cout << "Wrong method:\n";
+	for (i = 0; quizscores[i] = 20; i++) {
+		cout << "Quis score is 20\n";
+	}
+	*/
 	return 0;
 }
