@@ -1,14 +1,18 @@
 #pragma warning(disable:4996)
-//compstr2.cpp
+//while.cpp
 #include <iostream>
-#include<string>
+const int ArSize = 20;
 int main() {
 	using namespace std;
-	string word = "?ate";
-	for (char ch = 'a'; word != "mate"; ch++) {
-		cout << word << endl;
-		word[0] = ch;
+	char name[ArSize];
+	cout << "Enter your name: ";
+	cin >> name;
+	cout << "Your name, one character per line\n";
+	cout << "Shown with ASCII code like this.\n";
+	int i = 0;
+	while (name[i] != '\0') {
+		cout << name[i] << ": " << int(name[i]) << endl;
+		i++;
 	}
-	cout << "After the loop ends the word is " << word << endl;
 	return 0;
 }
