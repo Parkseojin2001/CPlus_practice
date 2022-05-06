@@ -1,20 +1,16 @@
 #pragma warning(disable:4996)
-//express.cpp
+//formore.cpp
 #include <iostream>
+const int ArSize = 16;
 int main() {
 	using namespace std;
-	int x;
-	cout << "The value of the substitution expression x = 100 is ";
-	cout << (x = 100) << endl;
-	cout << "x value = " << x << endl;
-	cout << "Relational expression x < 3 integer value :";
-	cout << (x < 3) << endl;
-	cout << "Relational expression x > 3 integer value :";
-	cout << (x > 3) << endl;
-	cout.setf(ios_base::boolalpha);
-	cout << "Relational expression x < bool value of 3 ";
-	cout << (x < 3) << endl;
-	cout << "Relational expression x > bool value of 3 ";
-	cout << (x > 3) << endl;
+	long long factorials[ArSize];
+	factorials[1] = factorials[0] = 1;
+	for (int i = 2; i < ArSize; i++) {
+		factorials[i] = i * factorials[i - 1];
+	}
+	for (int i = 0; i < ArSize; i++) {
+		std::cout << i << "! = " << factorials[i] << std::endl;
+	}
 	return 0;
 }
