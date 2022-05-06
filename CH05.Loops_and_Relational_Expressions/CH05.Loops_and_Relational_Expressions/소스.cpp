@@ -1,15 +1,13 @@
 #pragma warning(disable:4996)
-//forstr1.cpp
+//plus_one.cpp
 #include <iostream>
-#include<string>
 int main() {
-	using namespace std;
-	cout << "Enter one word: ";
-	string word;
-	cin >> word;
-	for (int i = word.size() - 1; i >= 0; i--) {
-		cout << word[i];
-	}
-	cout << "\nEnd\n";
+	using std::cout;
+	using std::endl;
+	int a = 20;
+	int b = 20;
+	cout << "a    = " << a << ":     b = " << b << endl;
+	cout << "a++  = " << a++ << ": ++b = " << ++b << endl;
+	cout << "a    = " << a << ":    b = " << b << endl;
 	return 0;
 }
