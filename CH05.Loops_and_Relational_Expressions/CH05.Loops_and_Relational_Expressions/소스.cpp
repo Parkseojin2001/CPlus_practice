@@ -1,20 +1,16 @@
 #pragma warning(disable:4996)
-//equal.cpp
+//compstr1.cpp
 #include <iostream>
-#include<string>
+#include<cstring>
 int main() {
 	using namespace std;
-	int quizscores[10] = { 20,20,20,20,20,19,20,18,20,20 };
-	cout << "Correct method:\n";
-	int i;
-	for (i = 0; quizscores[i] == 20; i++) {
-		cout << i << "Quiz score is 20.\n";
+	char word[5] = "?ate";
+	for (char ch = 'a'; strcmp(word, "mate"); ch++) {
+		cout << word << endl;
+		word[0] = ch;
 	}
-	/*
-	cout << "Wrong method:\n";
-	for (i = 0; quizscores[i] = 20; i++) {
-		cout << "Quis score is 20\n";
-	}
-	*/
+	cout << "After the loop ends the word is " << word << endl;
+	/* strcmp(word,"mate")
+	   = strcmp(word,"mate") != 0 */
 	return 0;
 }
