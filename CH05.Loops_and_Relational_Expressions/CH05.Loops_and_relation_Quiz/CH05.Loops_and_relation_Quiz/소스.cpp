@@ -3,13 +3,17 @@
 #include <string>
 int main() {
 	using namespace std;
-	string word;
-	int count = 0;
-	cout << "Enter English words(type done to end):" << endl;
-	while (word!="done") {
-		cin >> word;
-		count++;
+	int num;
+	cout << "Enter the number of lines ot output: ";
+	cin >> num;
+	for (int i = 0; i < num; i++) {
+		for (int j = 0; j < num - i - 1; j++) {
+			cout << ".";
+		}
+		for (int j = num - 1 - i; j < num; j++) {
+			cout << "*";
+		}
+		cout << endl;
 	}
-	cout << "A total of " << count-1 << " words were entered.";
 	return 0;
 }
