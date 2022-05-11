@@ -2,7 +2,7 @@
 #include <iostream>
 int main() {
 	using namespace std;
-	const char* month[12] = {
+	string month[12] = {
 		"January",
 		"February",
 		"March",
@@ -16,13 +16,18 @@ int main() {
 		"November",
 		"December"
 	};
-	int sell[12],sum=0;
-	for (int i = 0; i < 12; i++) {
-		cout << month[i]<<": ";
-		cin >> sell[i];
-		sum += sell[i];
+	int sell[3][12], sum[3] = { 0 }, total = 0;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 12; j++) {
+			cout << month[j] << ": ";
+			cin >> sell[i][j];
+			sum[i] += sell[i][j];
+		}
+		total += sum[i];
 	}
-	
-	cout << "Total annual sales: " << sum << endl;
+	for (int i = 0; i < 3; i++) {
+		cout <<i+1 << "year sales: " << sum[i] << endl;
+	}
+	cout << "Total sales: " << total;
 	return 0;
 }
