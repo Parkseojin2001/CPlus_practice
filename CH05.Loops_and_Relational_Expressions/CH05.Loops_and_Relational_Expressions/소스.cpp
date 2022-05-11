@@ -5,11 +5,9 @@ int main() {
 	using namespace std;
 	char ch;
 	int count = 0;
-	cin.get(ch);
-	while (cin) {
+	while (cin.get(ch)) {
 		cout << ch;
 		++count;
-		cin.get(ch);
 	}
 	cout << count << " read the text.\n";
 	return 0;
