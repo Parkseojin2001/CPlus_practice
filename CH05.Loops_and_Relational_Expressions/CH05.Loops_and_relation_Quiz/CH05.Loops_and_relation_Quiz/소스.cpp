@@ -1,9 +1,8 @@
 #pragma warning(disable:4996)
 #include <iostream>
-#include <string>
 int main() {
 	using namespace std;
-	string month[12] = {
+	const char* month[12] = {
 		"January",
 		"February",
 		"March",
