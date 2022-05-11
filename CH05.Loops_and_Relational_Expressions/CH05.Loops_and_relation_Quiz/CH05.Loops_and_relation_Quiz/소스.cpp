@@ -1,16 +1,15 @@
 #pragma warning(disable:4996)
 #include <iostream>
-#include <array>
-const int ArSize = 101;
 int main() {
 	using namespace std;
-	array<long double, ArSize> factorials;
-	factorials[1] = factorials[0] = 1L;
-	for (int i = 2; i < ArSize; i++) {
-		factorials[i] = i * factorials[i - 1];
+	int n,sum=0;
+	cout << "Enter a number(Exit when 0 is input): ";
+	cin >> n;
+	while (n != 0) {
+		sum += n;
+		cout << "Enter a number(Exit when 0 is input): ";
+		cin >> n;
 	}
-	for (int i = 0; i < ArSize; i++) {
-		cout << i << "! = " << factorials[i] << endl;
-	}
+	cout << "Sum: " << sum << endl;
 	return 0;
 }
