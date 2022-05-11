@@ -2,14 +2,15 @@
 #include <iostream>
 int main() {
 	using namespace std;
-	int n,sum=0;
-	cout << "Enter a number(Exit when 0 is input): ";
-	cin >> n;
-	while (n != 0) {
-		sum += n;
-		cout << "Enter a number(Exit when 0 is input): ";
-		cin >> n;
-	}
-	cout << "Sum: " << sum << endl;
+	double A = 10000, B = 10000;
+	int year=0;
+	do {
+		A += 10000 * 0.1;
+		B += B * 0.05;
+		year++;
+	} while (A > B);
+	cout << "A's investment value: " << A << endl;
+	cout << "B's investment value: " << B << endl;
+	cout << "Year: " << year << endl;
 	return 0;
 }
