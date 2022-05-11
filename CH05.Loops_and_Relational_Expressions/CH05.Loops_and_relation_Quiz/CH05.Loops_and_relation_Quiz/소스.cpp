@@ -1,12 +1,12 @@
 #pragma warning(disable:4996)
 #include <iostream>
-#include <cstring>
+#include <string>
 int main() {
 	using namespace std;
-	char word[50];
+	string word;
 	int count = 0;
 	cout << "Enter English words(type done to end):" << endl;
-	while (strcmp(word, "done")) {
+	while (word!="done") {
 		cin >> word;
 		count++;
 	}
