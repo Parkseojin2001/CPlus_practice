@@ -1,14 +1,17 @@
 #pragma warning(disable:4996)
-//dowhile.cpp
+//texttin1.cpp
 #include <iostream>
 int main() {
 	using namespace std;
-	int n;
-	cout << "From 1 to 10 ";
-	cout << " Guesss my favorite number.\n";
-	do {
-		cin >> n;
-	} while (n != 7);
-	cout << "Correct. My favorite number is lucky seven 7\n";
+	char ch;
+	int count = 0;
+	cout << "Enter text; Enter # to end:\n";
+	cin >> ch;
+	while (ch != '#') {
+		cout << ch;
+		++count;
+		cin >> ch;
+	}
+	cout << endl << count << " read the text.\n";
 	return 0;
 }
