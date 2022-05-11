@@ -6,7 +6,7 @@ int main() {
 	char ch;
 	int count = 0;
 	cin.get(ch);
-	while (!cin.fail()) {
+	while (cin) {
 		cout << ch;
 		++count;
 		cin.get(ch);
