@@ -1,11 +1,12 @@
 #pragma warning(disable:4996)
 //nested.cpp
 #include <iostream>
+#include <string>
 const int Cities = 5;
 const int Years = 4;
 int main() {
 	using namespace std;
-	const char *cities[Cities] = {
+	const string cities[Cities] = {
 		"Seoul",
 		"Jeju",
 		"Busan",
