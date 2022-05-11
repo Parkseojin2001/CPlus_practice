@@ -5,7 +5,7 @@ const int Cities = 5;
 const int Years = 4;
 int main() {
 	using namespace std;
-	const char cities[Cities][25] = {
+	const char *cities[Cities] = {
 		"Seoul",
 		"Jeju",
 		"Busan",
