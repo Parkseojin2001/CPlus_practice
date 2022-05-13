@@ -1,24 +1,35 @@
 #pragma warning(disable:4996)
 #include<iostream>
-#include<climits>
-//not.cpp
-bool is_int(double);
+#include<cctype>
+//cctypes.cpp
 int main() {
 	using namespace std;
-	double num;
-	cout << "Enter an integer value: ";
-	cin >> num;
-	while (!is_int(num)) {
-		cout << "This value cannot be assigned to type int. Please re-enter: ";
-		cin >> num;
+	cout << "Enter text to be analyzed. "
+		"End of the input with @\n";
+	char ch;
+	int whitespace = 0;
+	int digits = 0;
+	int chars = 0;
+	int punct = 0;
+	int others = 0;
+	cin.get(ch);
+	while (ch != '@') {
+		if (isalpha(ch))
+			chars++;
+		else if (isspace(ch))
+			whitespace++;
+		else if (isdigit(ch))
+			digits++;
+		else if (ispunct(ch))
+			punct++;
+		else
+			others++;
+		cin.get(ch);
 	}
-	int val = int(num);
-	cout << "The integer you entered is " << val << ".\n";
+	cout << "Char " << chars << ", "
+		<< "Whitespace " << whitespace << ", "
+		<< "Digit " << digits << ", "
+		<< "Punct " << punct << ", "
+		<< "Others " << others << endl;
 	return 0;
-}
-bool is_int(double x) {
-	if (x <= INT_MAX && x >= INT_MIN)
-		return true;
-	else
-		return false;
 }
