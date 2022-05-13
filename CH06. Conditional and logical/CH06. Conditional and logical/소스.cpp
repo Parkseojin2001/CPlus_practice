@@ -1,26 +1,24 @@
 #pragma warning(disable:4996)
 #include<iostream>
-//more_and.cpp
-const char* qualify[4] = {
-	"10000m Run",
-	"Sand Wrestling",
-	"Beach Wolley",
-	"Boomerang Throw"
-};
+#include<climits>
+//not.cpp
+bool is_int(double);
 int main() {
 	using namespace std;
-	int age;
-	cout << "Enter your age: ";
-	cin >> age;
-	int index;
-	if (age > 17 && age < 35)
-		index = 0;
-	else if (age >= 35 && age < 50)
-		index = 1;
-	else if (age >= 50 && age < 65)
-		index = 2;
-	else
-		index = 3;
-	cout << "You can participate in " << qualify[index] << ".\n";
+	double num;
+	cout << "Enter an integer value: ";
+	cin >> num;
+	while (!is_int(num)) {
+		cout << "This value cannot be assigned to type int. Please re-enter: ";
+		cin >> num;
+	}
+	int val = int(num);
+	cout << "The integer you entered is " << val << ".\n";
 	return 0;
+}
+bool is_int(double x) {
+	if (x <= INT_MAX && x >= INT_MIN)
+		return true;
+	else
+		return false;
 }
