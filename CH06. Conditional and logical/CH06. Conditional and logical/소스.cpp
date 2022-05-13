@@ -1,21 +1,19 @@
 #pragma warning(disable:4996)
 #include<iostream>
-//if.cpp
+//ifelse.cpp
 int main() {
-	using std::cin;
-	using std::cout;
-	using std::endl;
+	using namespace std;
 	char ch;
-	int spaces = 0;
-	int total = 0;
+	cout << "If you type it, it will repeat.\n";
 	cin.get(ch);
 	while (ch != '.') {
-		if (ch == ' ')
-			++spaces;
-		++total;
+		if (ch == '\n')
+			cout << ch;
+		else
+			cout << ++ch;
 		cin.get(ch);
+
 	}
-	cout << "The total number of characters in this sentence is " << total << " and, ";
-	cout << "among them, the blank is " << spaces << endl;
+	cout << "\nSorry for confusion.\n";
 	return 0;
 }
