@@ -1,19 +1,20 @@
 #pragma warning(disable:4996)
 #include<iostream>
-//ifelse.cpp
+//ifelseif.cpp
+const int Fave = 27;
 int main() {
 	using namespace std;
-	char ch;
-	cout << "If you type it, it will repeat.\n";
-	cin.get(ch);
-	while (ch != '.') {
-		if (ch == '\n')
-			cout << ch;
+	int n;
+	cout << "It is a game of guessing a number from 1 to 100.\n";
+	cout << "What is my favorite number? ";
+	do {
+		cin >> n;
+		if (n < Fave)
+			cout << "It's bigger than that. What is it? ";
+		else if (n > Fave)
+			cout << "It's smaller than that. What is it? ";
 		else
-			cout << ++ch;
-		cin.get(ch);
-
-	}
-	cout << "\nSorry for confusion.\n";
+			cout << "Correct. Answer is " << Fave << endl;
+	} while (n != Fave);
 	return 0;
 }
