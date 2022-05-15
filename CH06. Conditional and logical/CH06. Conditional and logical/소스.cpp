@@ -1,24 +1,26 @@
 #pragma warning(disable:4996)
 #include<iostream>
-//jump.cpp
-const int ArSize = 80;
+//cinfish.cpp
+const int Max = 5;
 int main() {
 	using namespace std;
-	char line[ArSize];
-	int spaces = 0;
-	cout << "Enter text:\n";
-	cin.get(line, ArSize);
-	cout << "All text:\n" << line << endl;
-	cout << "Text to first period:\n";
-	for (int i = 0; line[i] != '\0'; i++) {
-		cout << line[i];
-		if (line[i] == '.')
-			break;
-		if (line[i] != ' ')
-			continue;
-		spaces++;
+	double fish[Max];
+	cout << "Enter the weight of the fish you caught today.\n";
+	cout << "You can catch up to " << Max << "fish.\n"
+		<< "<If you end the input, press P.>\n";
+	cout << "fish #1: ";
+	int i = 0;
+	while (i < Max && cin >> fish[i]) {
+		if (++i < Max)
+			cout << "fish #" << i + 1 << ": ";
 	}
-	cout << "\nBlank is " << spaces << endl;
-	cout << "Exit\n";
+	double total = 0.0;
+	for (int j = 0; j < i; j++)
+		total += fish[j];
+	if (i == 0)
+		cout << "You haven't caught a single fish.\n";
+	else
+		cout << "Fish " << i << "average weight of the mare is " << total / i << "gram.\n";
+	cout << "Exit program.\n";
 	return 0;
 }
