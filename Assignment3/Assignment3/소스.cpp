@@ -1,32 +1,46 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//Quiz3
+#include <string>
+//Quiz4
 using namespace std;
-class shape { //create class for width and height
+class mother {  //create class for age and name
 protected:
-	int width = 10;
-	int height = 5;
-};
-class rectangle :public shape {  //create class that prints the area of a rectangle
+	int age;   //declaration age variable
+	string name;   //declaration name variable
 public:
-	void cal_r() { //Define function to print the area of a rectangle
-		int area_r;  //Declaration variable to store the area
-		area_r = width * height;   //calculate the area of a rectangle
-		cout << "Area of area_r: " << area_r << endl;   //print the area of a rectangle
+	void getdata() {   //define a function to enter the age and name of an animal
+		cout << "Age: ";
+		cin >> age;  //Input animal age
+		cout << "Name: ";
+		cin >> name;   //Input animal name
 	}
 };
-class triangle :public shape {  //create class that prints the area of a triangle
+class Zebra :public mother {  //craete class about animal information
+protected:
+	string contry = "Africa";  //declaration place of origin and save origin of  a animal
 public:
-	void cal_t() {   //Define function to print the area of a rectangle
-		int area_t;  //Declaration valriable to store the area
-		area_t = width * height / 2;  //calculate the area of a triangle
-		cout << "Area of triangle: " << area_t << endl; //print the area of a rectangle
+	void print_z(){   //define a function to print the age, name and place of origin of an animal
+		cout << "Zebra name: " << name << endl;   //print name
+		cout << "Zebra age: " << age << endl;  //print age
+		cout << "Zebra place of origin: " << contry << endl;  //print place of orign
+	}
+};
+class Dolphin :public mother {  //create class aobut animal information
+protected:
+	string contry = "Korea";  //declaration place of orign and save origin of a animal
+public:
+	void print_d(){  //define a function to print the age, name and place of origin of an animal
+		cout << "Dolphin name: " << name << endl;  //print name
+		cout << "Dolphin age: " << age << endl;  //print age
+		cout << "Dolphin place of origin: " << contry << endl;  //print place of orgin
 	}
 };
 int main() {
-	rectangle A;  //declaration object
-	triangle B;
-	A.cal_r();  //call function to print the area of a rectangle
-	B.cal_t(); //call function to print the area of a triangle
+	Zebra z1;   //declaration object
+	Dolphin d1;
+	z1.getdata();  //Call 'getdata()'function
+	d1.getdata();
+	z1.print_z();  //Call 'print_z()'function
+	d1.print_d();  //Call 'print_d()'function
 	return 0;
 }
