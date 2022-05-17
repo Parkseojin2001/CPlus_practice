@@ -3,29 +3,33 @@
 //Quiz2
 using namespace std;
 class Area {    //Class to find the area of a rectangle
-private:
-	double a, b;  //variable declaration
 public:
-	void print_A() {  //define a function to print the area
-		cin >> a;
-		cin >> b;
-		cout << "Area: " << a * b << endl;
+	double area(double a,double b) {  //define a function to calculate the area
+		return a * b;
 	}
 };
-class Perimeter { //Class to fint the perimeter of a rectangle
-private:
-	double a, b;  //variable declaration
+class Perimeter { //Class to find the perimeter of a rectangle
 public:
-	void print_P() {  //define a function to print the perimeter
-		cin >> a;
-		cin >> b;
-		cout << "Perimeter: " << 2 * (a + b) << endl;
+	double perimeter(double a,double b) {  //define a function to calculate the perimeter
+		return 2 * (a + b);
+	}
+};
+class rectangle :public Area, public Perimeter { //Class to print area and perimeter
+	double a, p,n,m;   //variable declaration 
+	Area A;   // declaration object
+	Perimeter P;
+public:
+	void show() {   //define a function to show area and perimeter
+		cin >> n;  //Enter horizontal
+		cin >> m;  //Enter length
+		a = A.area(n,m);
+		p = P.perimeter(n,m);
+		cout << "Area: " << a << endl;   //Print rectangle area
+		cout << "Perimeter " << p << endl;   //Print rectangle area
 	}
 };
 int main() {
-	Area r1; //Object of class declaration
-	Perimeter r2;
-	r1.print_A();  //function call
-	r2.print_P();
+	rectangle r;   //declaration object
+	r.show();   //Call a function to show rectangle's area and perimeter
 	return 0;
 }
