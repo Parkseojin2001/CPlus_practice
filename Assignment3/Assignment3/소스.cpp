@@ -1,46 +1,36 @@
 #pragma warning(disable:4996)
 #include <iostream>
-#include <string>
+#include <string.h>
 //Quiz4
 using namespace std;
-class mother {  //create class for age and name
-protected:
-	int age;   //declaration age variable
-	string name;   //declaration name variable
+class sentence2; //declaration class
+class sentence1 {  //define class for sentence1
+	char st1[100];    //declaration variable
 public:
-	void getdata() {   //define a function to enter the age and name of an animal
-		cout << "Age: ";
-		cin >> age;  //Input animal age
-		cout << "Name: ";
-		cin >> name;   //Input animal name
+	void read_a() {   //define a function to input a string 1
+		cout << "Enter string1: ";   
+		cin.getline(st1,100);
 	}
+	friend void operator>(sentence1, sentence2);
 };
-class Zebra :public mother {  //craete class about animal information
-protected:
-	string contry = "Africa";  //declaration place of origin and save origin of  a animal
+class sentence2 {   //define class for sentence2
+	char st2[100];   //declaration variable
 public:
-	void print_z(){   //define a function to print the age, name and place of origin of an animal
-		cout << "Zebra name: " << name << endl;   //print name
-		cout << "Zebra age: " << age << endl;  //print age
-		cout << "Zebra place of origin: " << contry << endl;  //print place of orign
+	void read_b() {   //define a function to input a string 2
+		cout << "Enter string2: ";   
+		cin.getline(st2,100);
 	}
+	friend void operator>(sentence1, sentence2);
 };
-class Dolphin :public mother {  //create class aobut animal information
-protected:
-	string contry = "Korea";  //declaration place of orign and save origin of a animal
-public:
-	void print_d(){  //define a function to print the age, name and place of origin of an animal
-		cout << "Dolphin name: " << name << endl;  //print name
-		cout << "Dolphin age: " << age << endl;  //print age
-		cout << "Dolphin place of origin: " << contry << endl;  //print place of orgin
-	}
-};
+void operator>(sentence1 s1, sentence2 s2) {   //define operator
+	strlen(s1.st1) > strlen(s2.st2) ? cout << "Yes" : cout << "No";  //If string1 is greater, print 'Yes'
+}
 int main() {
-	Zebra z1;   //declaration object
-	Dolphin d1;
-	z1.getdata();  //Call 'getdata()'function
-	d1.getdata();
-	z1.print_z();  //Call 'print_z()'function
-	d1.print_d();  //Call 'print_d()'function
+	cout << "Is sentence1 > sentence2 ?" << endl;  //Prints a question whether the first sentence is greater than the second sentence
+	sentence1 obj1;  //declaration object
+	sentence2 obj2;
+	obj1.read_a();  //Call function to input string
+	obj2.read_b();
+	obj1 > obj2;  //Print the result for the question
 	return 0;
 }
