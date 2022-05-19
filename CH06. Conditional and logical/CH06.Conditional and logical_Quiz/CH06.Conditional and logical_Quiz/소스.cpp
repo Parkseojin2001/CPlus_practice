@@ -1,43 +1,42 @@
 #pragma warning(disable:4996)
 #include<iostream>
 #include<string>
-using namespace std;
-struct info{
-	string name;
-	double donation;
-};
+#include<string.h>
+#include<cctype>
 int main() {
-	int n;
-	cout << "Society for the Preservation of Rightful Influence\n";
-	cout << "Number of people to donate: ";
-	cin >> n;
-	info *list = new info[n];
-	for (int i = 0; i < n; i++) {
-		cout << i+1 << " Donor Name: ";
-		cin >> list[i].name;
-		cout << "Donation amount: ";
-		cin >> list[i].donation;
-	}
-	int cnt = 0;
-	cout << "\nA list of big donors\n\n";
-	for (int i = 0; i < n; i++) {
-		if (list[i].donation >= 10000) {
-			cout << cnt + 1 << ". " << list[i].name << "      " << list[i].donation << endl;
-			cnt++;
+	using namespace std;
+	string str;
+	int vowel = 0, consonant = 0, etc = 0;
+	cout << "Enter the words. (To end, q.)\n";
+	cin >> str;
+	while (str != "q") {
+		if (isalpha(str[0])) {
+			switch (str[0]) {
+			case 'a':
+			case 'A':
+				vowel++;break;
+			case 'e':
+			case'E':
+				vowel++;break;
+			case'i':
+			case'I':
+				vowel++;break;
+			case'o':
+			case'O':
+				vowel++;break;
+			case'u':
+			case'U':
+				vowel++;break;
+			default:
+				consonant++;break;
+			}
 		}
+		else
+			etc++;
+		cin >> str;
 	}
-	if (cnt == 0)
-		cout << "\nWe don't have a donor\n";
-	cnt = 0;
-	cout << "\nA list small donors\n\n";
-	for (int i = 0; i < n; i++) {
-		if (list[i].donation < 10000) {
-			cout << cnt + 1 << ". " << list[i].name << "      " << list[i].donation << endl;
-			cnt++;
-		}
-	}
-	if(cnt==0)
-		cout << "\nWe don't have a donor\n";
+	cout << "Number of words that begin with a vowel: " << vowel << endl;
+	cout << "Number of words that begin with a consonant: " << consonant << endl;
+	cout << "Etc: " << etc << endl;
 	return 0;
-
 }
