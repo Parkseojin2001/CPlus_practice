@@ -1,28 +1,56 @@
 #pragma warning(disable:4996)
 #include<iostream>
-#include<array>
+#include<string>
+using namespace std;
+struct bop {
+	string fullname;
+	string title;
+	string bopname;
+	int prefernece;
+};
 int main() {
-	using namespace std;
-	cout << "Select one of the following options. (If you want to exit, enter q)\n"
-		<< "c) camera        p) pianist\n"
-		<< "t) tree          g) game\n";
-	char ch;
-	cin >> ch;
-	while (ch != 'q') {
-		switch(ch){
-		case 'c': cout << "Select camera\n";
+	bop list[5] = {
+		{"Wimp Macho","CEO","AAA",0},
+		{"Raki Rhodes","Junior Programmer","BBB",1},
+		{"Celia Laiter","doctor","MIPS",2},
+		{"Hoppy Hipman","Analyst Trainee","DDD",1},
+		{"Pat Hand","Engineer","LOPPY",2}
+	};
+	char c;
+	cout << "Benevolent Order of Programmers\n"
+		<< "a. Reading by full name             b. Reading by title\n"
+		<< "c. Reading by BOP_ID                d. Reading by preference\n"
+		<< "q. Exit\n";
+	do {
+		cout << "Choose what you want: ";
+		cin >> c;
+		switch (c) {
+		case 'a':
+			for (int i = 0; i < 5; i++)
+				cout << list[i].fullname << endl;
 			break;
-		case 'p': cout << "Select pianist\n";
+		case 'b':
+			for (int i = 0; i < 5; i++)
+				cout << list[i].title << endl;
 			break;
-		case 't': cout << "Select tree\n";
+		case'c':
+			for (int i = 0; i < 5; i++)
+				cout << list[i].bopname << endl;
 			break;
-		case 'g': cout << "Select game\n";
+		case'd':
+			for (int i = 0; i < 5; i++) {
+				if (list[i].prefernece == 0)
+					cout << list[i].fullname << endl;
+				else if (list[i].prefernece == 1)
+					cout << list[i].title << endl;
+				else
+					cout << list[i].bopname << endl;
+			}
 			break;
-		default: cout << "Select one from c, p, t, and g. (If you want to exit, enter q) : ";
-			cin >> ch;
-			continue;
+		case 'q':
+			cout << "End the program.\n";
+			break;
 		}
-		break;
-	}
+	} while (c != 'q');
 	return 0;
 }
