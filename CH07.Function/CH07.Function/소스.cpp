@@ -1,15 +1,27 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//calling.cpp
-void simple();
-int main() {
+//protos.cpp
+void cheers(int);
+double cube(double x);
+int main(void) {
 	using namespace std;
-	cout << "In main, I call simple():\n";
-	simple();
-	cout << "In main, I exit simple().\n";
+	cheers(5);
+	cout << "Enter one number: ";
+	double side;
+	cin >> side;
+	double volume = cube(side);
+	cout << "A cube with a side length of " << side << " cm has a volume of ";
+	cout<< volume <<" cm^3\n";
+	cheers(cube(2));
 	return 0;
 }
-void simple() {
+void cheers(int n) {
 	using namespace std;
-	cout << "Here is the simple() function.\n";
+	for (int i = 0; i < n; i++) {
+		cout << "Cheers! ";
+	}
+	cout << endl;
+}
+double cube(double x) {
+	return x * x * x;
 }
