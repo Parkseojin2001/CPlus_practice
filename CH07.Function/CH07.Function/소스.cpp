@@ -1,25 +1,19 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//lotto.cpp
-using namespace std;
-long double probability(unsigned numbers, unsigned picks);
+//arrfun1.cpp
+const int ArSize = 8;
+int sum_arr(int arr[], int n);
 int main() {
 	using namespace std;
-	double total, choices;
-	cout << "Enter the number of total numbers and the number of numbers to be drawn:\n";
-	while ((cin >> total >> choices) && choices <= total) {
-		cout << "Your probability wnning are 1 out of ";
-		cout << probability(total, choices) << endl;
-		cout << "Enter two numbers again. (Enter q to exit): ";
-	}
-	cout << "Exit program.\n";
+	int cookies[ArSize] = { 1,2,4,8,16,32,64,128 };
+	int sum = sum_arr(cookies, ArSize);
+	cout << "Number of cookies eaten: " << sum << endl;
 	return 0;
 }
-long double probability(unsigned numbers, unsigned picks) {
-	long double result = 1.0;
-	long double n;
-	unsigned p;
-	for (n = numbers, p = picks; p > 0; n--, p--)
-		result = result * n / p;
-	return result;
+int sum_arr(int arr[], int n) {
+	int total = 0;
+	for (int i = 0; i < n; i++) {
+		total = total + arr[i];
+	}
+	return total;
 }
