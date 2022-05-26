@@ -1,27 +1,25 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//twoarg.cpp
+//lotto.cpp
 using namespace std;
-void n_chars(char, int);
+long double probability(unsigned numbers, unsigned picks);
 int main() {
-	int times;
-	char ch;
-	cout << "Enter one character: ";
-	cin >> ch;
-	while (ch != 'q') {
-		cout << "Enter an integer: ";
-		cin >> times;
-		n_chars(ch, times);
-		cout << "\n Enter another letter to continue, "
-			"press q to exit: ";
-		cin >> ch;
+	using namespace std;
+	double total, choices;
+	cout << "Enter the number of total numbers and the number of numbers to be drawn:\n";
+	while ((cin >> total >> choices) && choices <= total) {
+		cout << "Your probability wnning are 1 out of ";
+		cout << probability(total, choices) << endl;
+		cout << "Enter two numbers again. (Enter q to exit): ";
 	}
-	cout << "The current times value is " << times << endl;
 	cout << "Exit program.\n";
 	return 0;
 }
-void n_chars(char c, int n) {
-	while (n-- > 0) {
-		cout << c;
-	}
+long double probability(unsigned numbers, unsigned picks) {
+	long double result = 1.0;
+	long double n;
+	unsigned p;
+	for (n = numbers, p = picks; p > 0; n--, p--)
+		result = result * n / p;
+	return result;
 }
