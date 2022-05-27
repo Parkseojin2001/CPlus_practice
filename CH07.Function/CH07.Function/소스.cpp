@@ -1,26 +1,60 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//arrfun2.cpp
-const int ArSize = 8;
-int sum_arr(int arr[], int n);
+//arrfun3.cpp
+const int Max = 5;
+int fill_array(double ar[], int limit);
+void show_array(const double ar[], int n);
+void revalue(double r, double ar[], int n);
 int main() {
-	int cookies[ArSize] = {1,2,4,8,16,32,64,128};
-	std::cout << cookies << " = array address, ";
-	std::cout << "sizeof cookies = " << sizeof cookies << std::endl;
-	int sum = sum_arr(cookies, ArSize);
-	std::cout << "Total of cookies eaten: " << sum << std::endl;
-	sum = sum_arr(cookies, 3);
-	std::cout << "Three people ate " << sum << "cookies.\n";
-	sum = sum_arr(cookies + 4, 4);
-	std::cout << "Four people ate " << sum << "cookies.\n";
+	using namespace std;
+	double properties[Max];
+	int size = fill_array(properties, Max);
+	show_array(properties, size);
+	if (size > 0) {
+		cout << "Enter revaluation rate: ";
+		double factor;
+		while (!(cin >> factor)) {
+			cin.clear();
+			while (cin.get() != '\n')
+				continue;
+			cout << "Wrong, Enter the number: ";
+		}
+		revalue(factor, properties, size);
+		show_array(properties, size);
+	}
+	cout << "Exit program.\n";
+	cin.get();
+	cin.get();
 	return 0;
 }
-int sum_arr(int arr[], int n) {
-	int total = 0;
-	std::cout << arr << " = arr,";
-	std::cout << "sizeof arr = " << sizeof arr << std::endl;
-	for (int i = 0; i < n; i++) {
-		total = total + arr[i];
+int fill_array(double ar[], int limit) {
+	using namespace std;
+	double temp;
+	int i;
+	for (i = 0; i < limit; i++) {
+		cout << (i + 1) << "'s real estate price: $";
+		cin >> temp;
+		if (!cin) {
+			cin.clear();
+			while (cin.get() != '\n')
+				continue;
+			cout << "Bad input; You have completed the input process.\n";
+			break;
+		}
+		else if (temp < 0)
+			break;
+		ar[i] = temp;
 	}
-	return total;
+	return i;
+}
+void show_array(const double ar[], int n) {
+	using namespace std;
+	for (int i = 0; i < n; i++) {
+		cout << (i + 1) << "'s real estate price: $";
+		cout << ar[i] << endl;
+	}
+}
+void revalue(double r, double ar[], int n) {
+	for (int i = 0; i < n; i++)
+		ar[i] *= r;
 }
