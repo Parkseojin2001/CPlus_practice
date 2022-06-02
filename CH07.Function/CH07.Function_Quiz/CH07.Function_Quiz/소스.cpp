@@ -1,45 +1,39 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//Quiz2
-const int cnt = 10;
-void input(double *score);
-void output(double *score);
-double avg(double *score);
+//Quiz3
+struct box {
+	char maker[40];
+	float height;
+	float width;
+	float length;
+	float volume;
+};
+void Print(struct box);
+float Volume(struct box *);
 int main() {
-	double score[cnt];
-	input(score);
-	output(score);
+	using namespace std;
+	struct box a = {
+		"abc",10,20,3,600
+	};
+	Print(a);
+	cout << "Height: ";
+	cin >> a.height;
+	cout << "Width: ";
+	cin >> a.width;
+	cout << "Length: ";
+	cin >> a.length;
+	cout << "Volume: ";
+	a.volume = Volume(&a);
+	Print(a);
 	return 0;
 }
-void input(double *score) {
+void Print(struct box Box) {
 	using namespace std;
-	double a;
-	for (int i = 0; i < cnt; i++) {
-		cout << i+1 << "'s game score: ";
-		cin >> a;
-		if (a < 0)
-			break;
-		score[i] = a;
-	}
+	cout << "Height: " << Box.height << endl;
+	cout << "Width: " << Box.width << endl;
+	cout << "Length: " << Box.length << endl;
+	cout << "Volume: " << Box.volume << endl;
 }
-void output(double* score) {
-	using namespace std;
-	double Avg;
-	Avg = avg(score);
-	cout << "Golf game score: ";
-	for (int i = 0; i < cnt && score[i] >= 0; i++) {
-		cout << score[i] << " ";
-	}
-	cout << "\n";
-	cout << "Average of Golf score: " << Avg << endl;
-}
-double avg(double* score) {
-	double sum = 0,AVG;
-	int count = 0;
-	for (int i = 0; i < cnt && score[i] >= 0; i++) {
-		sum += score[i];
-		count++;
-	}
-	AVG = sum / count;
-	return AVG;
+float Volume(struct box* Box) {
+	return Box->height * Box->length * Box->width;
 }
