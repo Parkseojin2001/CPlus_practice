@@ -1,39 +1,27 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//Quiz3
-struct box {
-	char maker[40];
-	float height;
-	float width;
-	float length;
-	float volume;
-};
-void Print(struct box);
-float Volume(struct box *);
+//Quiz4
+long double probability(unsigned numbers, unsigned picks, unsigned mega);
 int main() {
 	using namespace std;
-	struct box a = {
-		"abc",10,20,3,600
-	};
-	Print(a);
-	cout << "Height: ";
-	cin >> a.height;
-	cout << "Width: ";
-	cin >> a.width;
-	cout << "Length: ";
-	cin >> a.length;
-	cout << "Volume: ";
-	a.volume = Volume(&a);
-	Print(a);
+	unsigned total, choices,mega;
+	cout << "Enter number:\n";
+	while ((cin >> total >> choices) && choices <= total) {
+		cout << "Enter second range: \n";
+		cin >> mega;
+		cout << "Your probability wnning are 1 out of ";
+		cout << probability(total, choices,mega) << endl;
+		cout << "Enter two numbers again. (Enter q to exit): ";
+	}
+	cout << "Exit program.\n";
 	return 0;
 }
-void Print(struct box Box) {
-	using namespace std;
-	cout << "Height: " << Box.height << endl;
-	cout << "Width: " << Box.width << endl;
-	cout << "Length: " << Box.length << endl;
-	cout << "Volume: " << Box.volume << endl;
-}
-float Volume(struct box* Box) {
-	return Box->height * Box->length * Box->width;
+long double probability(unsigned numbers, unsigned picks, unsigned mega) {
+	long double result = 1.0;
+	unsigned n, p;
+	for (n = numbers, p = picks; p > 0; n--, p--) {
+		result = result * n / p;
+	}
+	result = result / mega;
+	return result;
 }
