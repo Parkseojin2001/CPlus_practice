@@ -1,38 +1,57 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//Quiz6
-int Fill_array(double*, int);
-void Show_array(double*, int);
-void Reverse_array(double*, int);
+//Quiz7
+const int Max = 5;
+double* fill_array(double *a,double *b);
+void show_array(double *a, double* b);
+void revalue(double r, double* a, double* b);
 int main() {
 	using namespace std;
-	double ar[10];
-	int n = Fill_array(ar, 10);
-	Show_array(ar, n);
-	cout << "REVERSE" << endl;
-	Reverse_array(ar, n);
-	Show_array(ar, n);
+	double properties[Max];
+	double* b = fill_array(properties, properties + Max);
+	show_array(properties, b);
+	if (properties != b) {
+		cout<<"Enter revaluation rate: ";
+		double factor;
+		while (!(cin >> factor)) {
+			cin.clear();
+			while (cin.get() != '\n')
+				continue;
+			cout << "Wrong, Enter the number: ";
+		}
+		revalue(factor, properties, b);
+		show_array(properties, b);
+	}
+	return 0;
 }
-int Fill_array(double* arr, int n) {
+double* fill_array(double* a, double* b) {
 	using namespace std;
 	int i;
-	for (i = 0; i < n; i++) {
-		cout << i + 1 << "'s double value: ";
-		if (!(cin >> arr[i]))
+	double temp;
+	for (i = 0; i<Max; i++) {
+		cout << i+1<<"'s real estate price: $";
+		cin >> temp;
+		if (!cin) {
+			cin.clear();
+			while (cin.get() != '\n')
+				continue;
+			cout << "Bad input; You have completed the input process.\n";
 			break;
+		}
+		else if (temp < 0)
+			break;
+		*(a + i) = temp;
 	}
-	return i;
+	return (a + i);
 }
-void Show_array(double* ar, int n) {
+void show_array(double* a, double* b) {
 	using namespace std;
-	for (int i = 0; i < n; i++)
-		cout << i + 1 << " : " << ar[i] << endl;
-}
-void Reverse_array(double* ar, int n) {
-	for (int i = 0; i < n / 2; i++) {
-		int temp;
-		temp = ar[i];
-		ar[i] = ar[n - 1 - i];
-		ar[n - 1 - i] = temp;
+	for (int i = 0; (a + i) != b; i++) {
+		cout << i + 1 << "'s real estate price: $";
+		cout << *(a + 1) << endl;
 	}
+}
+void revalue(double r, double* a, double* b) {
+	for (int i = 0; (a + i) != b; i++)
+		*(a + i) *= r;
 }
