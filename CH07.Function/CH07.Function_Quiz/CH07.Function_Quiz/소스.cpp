@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <array>
-//Quiz8-a
+//Quiz8-b
 const int Seasons = 4;
 const char* Sname[4] = { "Spring", "Summer","Fall","Winter" };
 void fill(struct a *pa);
