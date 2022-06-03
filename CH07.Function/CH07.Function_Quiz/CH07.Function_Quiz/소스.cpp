@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <array>
-//Quiz8
+//Quiz8-a
 const int Seasons = 4;
 const char* Sname[4] = { "Spring", "Summer","Fall","Winter" };
 void fill(std::array<double, Seasons>* pa);
