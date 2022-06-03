@@ -5,29 +5,32 @@
 //Quiz8-a
 const int Seasons = 4;
 const char* Sname[4] = { "Spring", "Summer","Fall","Winter" };
-void fill(std::array<double, Seasons>* pa);
-void show(std::array<double, Seasons> da);
+void fill(struct a *pa);
+void show(struct a da);
+struct a {
+	double ex[Seasons];
+};
 int main() {
 	using namespace std;
-	array<double, Seasons>expenses;
+	struct a expenses;
 	fill(&expenses);
 	show(expenses);
 	return 0;
 }
-void fill(std::array<double, Seasons>* pa) {
+void fill(struct a *pa) {
 	using namespace std;
 	for (int i = 0; i < Seasons; i++) {
 		cout << "Cost in " << Sname[i] << endl;
-		cin >> (*pa)[i];
+		cin >> pa->ex[i];
 	}
 }
-void show(std::array<double, Seasons> da) {
+void show(struct a da) {
 	using namespace std;
 	double total = 0.0;
 	cout << "\nSeasonal cost\n";
 	for (int i = 0; i < Seasons; i++) {
-		cout << Sname[i] << " : $" << da[i] << endl;
-		total += da[i];
+		cout << Sname[i] << " : $" << da.ex[i] << endl;
+		total += da.ex[i];
 	}
 	cout << "Total cost : $" << total << endl;
 }
