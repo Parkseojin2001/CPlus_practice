@@ -1,57 +1,33 @@
 #pragma warning(disable:4996)
 #include <iostream>
-//Quiz7
-const int Max = 5;
-double* fill_array(double *a,double *b);
-void show_array(double *a, double* b);
-void revalue(double r, double* a, double* b);
+#include <string>
+#include <array>
+//Quiz8
+const int Seasons = 4;
+const char* Sname[4] = { "Spring", "Summer","Fall","Winter" };
+void fill(std::array<double, Seasons>* pa);
+void show(std::array<double, Seasons> da);
 int main() {
 	using namespace std;
-	double properties[Max];
-	double* b = fill_array(properties, properties + Max);
-	show_array(properties, b);
-	if (properties != b) {
-		cout<<"Enter revaluation rate: ";
-		double factor;
-		while (!(cin >> factor)) {
-			cin.clear();
-			while (cin.get() != '\n')
-				continue;
-			cout << "Wrong, Enter the number: ";
-		}
-		revalue(factor, properties, b);
-		show_array(properties, b);
-	}
+	array<double, Seasons>expenses;
+	fill(&expenses);
+	show(expenses);
 	return 0;
 }
-double* fill_array(double* a, double* b) {
+void fill(std::array<double, Seasons>* pa) {
 	using namespace std;
-	int i;
-	double temp;
-	for (i = 0; i<Max; i++) {
-		cout << i+1<<"'s real estate price: $";
-		cin >> temp;
-		if (!cin) {
-			cin.clear();
-			while (cin.get() != '\n')
-				continue;
-			cout << "Bad input; You have completed the input process.\n";
-			break;
-		}
-		else if (temp < 0)
-			break;
-		*(a + i) = temp;
-	}
-	return (a + i);
-}
-void show_array(double* a, double* b) {
-	using namespace std;
-	for (int i = 0; (a + i) != b; i++) {
-		cout << i + 1 << "'s real estate price: $";
-		cout << *(a + 1) << endl;
+	for (int i = 0; i < Seasons; i++) {
+		cout << "Cost in " << Sname[i] << endl;
+		cin >> (*pa)[i];
 	}
 }
-void revalue(double r, double* a, double* b) {
-	for (int i = 0; (a + i) != b; i++)
-		*(a + i) *= r;
+void show(std::array<double, Seasons> da) {
+	using namespace std;
+	double total = 0.0;
+	cout << "\nSeasonal cost\n";
+	for (int i = 0; i < Seasons; i++) {
+		cout << Sname[i] << " : $" << da[i] << endl;
+		total += da[i];
+	}
+	cout << "Total cost : $" << total << endl;
 }
