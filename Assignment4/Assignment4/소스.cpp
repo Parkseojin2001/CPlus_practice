@@ -1,39 +1,46 @@
 #pragma warning(disable:4996)
 #include<iostream>
 #include<string>
+#include<array>
 using namespace std;
-struct cake {  //declaration structure about "cake information"
-	string BrandName;  //string variable declaration
-	double diameter = 0.0;  //double variable declaration and initialization
-	double weight = 0.0;    //double variable declaration and initialization
+struct student {
+	string name;
+	int cplus, physics;
 };
-void input(struct cake*, int n);  //Declaration function to enter cake information
-void output(struct cake*, int n);  //Dclaration function to print cake information
 int main() {
-	int n;
-	cin >> n;
-	struct cake* menu = new struct cake[n];  //Allocate the memory by using new operator
-	input(menu, n);  //Call function to enter cake information
-	output(menu, n);  //Call function to print cake information
-	delete[]menu; //deallocated the memory using delete operator
+	array<struct student,3>info;
+	info[0].name = "Student A";
+	info[0].cplus = 20;
+	info[0].physics = 100;
+	info[1].name = "Student B";
+	info[1].cplus = 70;
+	info[1].physics = 36;
+	info[2].name = "Student C";
+	info[2].cplus = 30;
+	info[2].physics = 50;
+	int order;
+	cout << "1.Show All student information  2.Show one student information  3.Exit\n";
+	while (1) {
+		cout << "Enter the menu number:";
+		cin >> order;
+		if (order == 1)
+			for (int i = 0; i < 3; i++) {
+				cout << "Student Name: " <<info[i].name << endl;
+				cout << "Student C++ score: " << info[i].cplus << endl;
+				cout << "Studnet Physics score: " << info[i].physics << endl;
+			}
+		else if (order == 2) {
+			int N;
+			cout << "Select Student number: ";
+			cin >> N;
+			cout << "Student Name: " << info[N - 1].name << endl;
+			cout << "Student C++ score: " << info[N - 1].cplus << endl;
+			cout << "Studnet Physics score: " << info[N - 1].physics << endl;
+		}
+		else {
+			cout << "-------- Exit--------";
+			break;
+		}
+	}
 	return 0;
-}
-void input(struct cake* p, int n) { //Define function to enter cake information
-	for (int i = 0; i < n; i++) {
-		cout << "#" << i + 1 << endl; //print cake's number
-		cout << "Brand Name: ";
-		cin >> p[i].BrandName;   //Enter cake brand name 
-		cout << "Cake diameter: ";
-		cin >> p[i].diameter;  //Enter cake diameter
-		cout << "Cake weight: ";
-		cin >> p[i].weight; //Enter cake weight
-	}
-}
-void output(struct cake* p, int n) { //Define function to print cake information
-	for (int i = 0; i < n; i++) {
-		cout << "#" << i + 1 << endl; //Print cake's number
-		cout << "Brand Name: " << p[i].BrandName << endl; //Print cake brand name
-		cout << "Cake diameter: " << p[i].diameter << endl;  //Print cake diameter
-		cout << "Cake weight: " << p[i].weight << endl;  //Print cake weight
-	}
 }
