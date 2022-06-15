@@ -1,34 +1,30 @@
 #pragma warning(disable:4996)
 #include <iostream>
+#include <string.h>
 using namespace std;
-class test2;
-class test1 {
-	int a;
+class test {
+	char st[100];
 public:
-	void geta() {
-		cout << "Enter obj1 a value->";
-		cin >> a;
+	void read() {
+		cout << "Enter string: ";
+		cin >> st;
 	}
-	friend void operator>(test1, test2);
-};
-class test2 {
-	int b;
-public:
-	void getb() {
-		cout << "Enter obj2 b value->";
-		cin >> b;
+	void display() {
+		cout << "string = " << st << endl;
 	}
-	friend void operator>(test1, test2);
+	test operator+(test t2) {
+		test t3;
+		strcpy(t3.st, st);
+		strcat(t3.st, " ");
+		strcat(t3.st, t2.st);
+		return t3;
+	}
 };
-void operator>(test1 x, test2 y) {
-	x.a > y.b ? cout << "YES" : cout << "NO";
-}
 int main() {
-	cout << "Is obj1 > obj2" << endl;
-	test1 obj1;
-	test2 obj2;
-	obj1.geta();
-	obj2.getb();
-	obj1 > obj2;
+	test t1, t2, t3;
+	t1. read();
+	t2. read();
+	t3 = t1 + t2;
+	t3.display();
 	return 0;
 }
