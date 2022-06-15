@@ -2,29 +2,23 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-class test {
-	char st[100];
+class student {
+	int id;
+	char name[30];
 public:
-	void read() {
-		cout << "Enter string: ";
-		cin >> st;
-	}
-	void display() {
-		cout << "string = " << st << endl;
-	}
-	test operator+(test t2) {
-		test t3;
-		strcpy(t3.st, st);
-		strcat(t3.st, " ");
-		strcat(t3.st, t2.st);
-		return t3;
-	}
+	friend void operator>>(istream& in, student& s);
+	friend void operator<<(ostream& out, student& s);
 };
+void operator>>(istream& in, student& s) {
+	cout << "Enter student ID and name: ";
+	in >> s.id >> s.name;
+}
+void operator<<(ostream& out, student& s) {
+	out << "ID: " << s.id << endl;
+	out << "Name: " << s.name;
+}
 int main() {
-	test t1, t2, t3;
-	t1. read();
-	t2. read();
-	t3 = t1 + t2;
-	t3.display();
-	return 0;
+	student s;
+	cin >> s;
+	cout << s;
 }
