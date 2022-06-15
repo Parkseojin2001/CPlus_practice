@@ -2,16 +2,17 @@
 #include <iostream>
 using namespace std;
 template <class t>
-t sum(t x[], int s) {
-	t sum = 0;
-	for (int i = 0; i < s; i++)
-		sum += x[i];
-	return sum;
+t sum(t a, t b) {
+	return a + b;
+}
+template <class t>
+t sum(t a, t b, t c) {
+	return a + b + c;
 }
 int main() {
-	int x[5] = { 0,10,15,14,20 }; //class t data type: int
-	float y[3] = { 10.5,2.5,1.5 }; //class t data type: float
-	cout << sum(x, 5) << endl;
-	cout << sum(y, 3) << endl;
+	cout << sum(10, 20) << endl;
+	cout << sum(10.1, 9.9) << endl;
+	cout << sum(10.2, 8.1, 3.2) << endl;
+	cout << sum(1, 4, 8);
 	return 0;
 }
