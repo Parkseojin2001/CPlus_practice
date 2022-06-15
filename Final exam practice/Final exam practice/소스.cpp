@@ -1,39 +1,30 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-class student {
-private:
-	int id;
-	char name[20];
+class A {
+	int a, b;
 public:
-	void getstudent() {
-		cout << "Enter student name: ";
-		cin >> name;
-		cout << "Enter id: ";
-		cin >> id;
+	void get() {
+		cin >> a >> b;
 	}
-	void putstudent() {
-		cout << "ID: " << id << endl;
-		cout << "Name: " << name << endl;
+	int add() {
+		return a + b;
 	}
 };
-class computer :private student {
-	float height, weight;
+class B :public A {
+	int c, d;
 public:
-	void getphysical() {
-		getstudent();
-		cout << "Enter student height and weight: ";
-		cin >> height >> weight;
+	void input() {
+		cin >> c >> d;
 	}
-	void putphysical() {
-		putstudent();
-		cout << "Height: " << height << endl;
-		cout << "Weight: " << weight << endl;
+	void sum() {
+		cout << c + d + add();
 	}
 };
 int main() {
-	computer obj;
-	obj.getphysical();
-	obj.putphysical();
+	B obj;
+	obj.get();
+	obj.input();
+	obj.sum();
 	return 0;
 }
