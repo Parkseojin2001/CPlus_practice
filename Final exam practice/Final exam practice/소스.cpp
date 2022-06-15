@@ -1,31 +1,34 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-class complex {
-private:
+class test2;
+class test1 {
 	int a;
+public:
+	void geta() {
+		cout << "Enter obj1 a value->";
+		cin >> a;
+	}
+	friend void operator>(test1, test2);
+};
+class test2 {
 	int b;
 public:
-	void setdata(int x, int y) {
-		a = x;
-		b = y;
+	void getb() {
+		cout << "Enter obj2 b value->";
+		cin >> b;
 	}
-	void showdata() {
-		cout << "a: " << a << " b: " << b << endl;
-	}
-	friend complex operator+(complex, complex);
+	friend void operator>(test1, test2);
 };
-complex operator+(complex x, complex y) {
-	complex temp;
-	temp.a = x.a + y.a;
-	temp.b = x.b + y.b;
-	return temp;
+void operator>(test1 x, test2 y) {
+	x.a > y.b ? cout << "YES" : cout << "NO";
 }
 int main() {
-	complex obj1, obj2, obj3;
-	obj1.setdata(3, 4);
-	obj2.setdata(5, 6);
-	obj3 = obj1 + obj2;
-	obj3.showdata();
+	cout << "Is obj1 > obj2" << endl;
+	test1 obj1;
+	test2 obj2;
+	obj1.geta();
+	obj2.getb();
+	obj1 > obj2;
 	return 0;
 }
