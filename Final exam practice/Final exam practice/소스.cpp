@@ -2,17 +2,22 @@
 #include <iostream>
 using namespace std;
 template <class t>
-t sum(t a, t b) {
-	return a + b;
-}
-template <class t>
-t sum(t a, t b, t c) {
-	return a + b + c;
-}
+class test {
+	t a,b;
+public:
+	void get() {
+		cin >> a >> b;
+	}
+	t sum() {
+		return a + b;
+	}
+};
 int main() {
-	cout << sum(10, 20) << endl;
-	cout << sum(10.1, 9.9) << endl;
-	cout << sum(10.2, 8.1, 3.2) << endl;
-	cout << sum(1, 4, 8);
+	test <int> obj1;
+	test <float> obj2;
+	obj1.get();
+	cout << obj1.sum() << endl;
+	obj2.get();
+	cout << obj2.sum() << endl;
 	return 0;
 }
