@@ -1,16 +1,17 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-template<class t1,class t2>  //The data types of the two classes are different
-float big(t1 a, t2 b) { 
-	if (a > b)
-		return a;
-	else
-		return b;
+template <class t>
+t sum(t x[], int s) {
+	t sum = 0;
+	for (int i = 0; i < s; i++)
+		sum += x[i];
+	return sum;
 }
 int main() {
-	cout << big(15.5, 13) << endl;
-	cout << big(10, 14.5) << endl;
-	cout << big(10, 14) << endl;
+	int x[5] = { 0,10,15,14,20 }; //class t data type: int
+	float y[3] = { 10.5,2.5,1.5 }; //class t data type: float
+	cout << sum(x, 5) << endl;
+	cout << sum(y, 3) << endl;
 	return 0;
 }
