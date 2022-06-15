@@ -1,29 +1,25 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-class complex {
-private:
-	int a, b;
+class test {
+	int a;
 public:
-	void setdata(int x, int y) {
-		a = x;
-		b = y;
+	void gets() {
+		cin >> a;
 	}
-	void showdata() {
-		cout << "a: " << a << " b: " << b << endl;
-	}
-	complex operator+(complex obj) {
-		complex temp;
-		temp.a = a + obj.a;
-		temp.b = b + obj.b;
-		return (temp);
+	void operator==(test t2) {
+		if (a == t2.a)
+			cout << "Objects are equal";
+		else
+			cout << "Object are not equal";
 	}
 };
 int main() {
-	complex obj1, obj2, obj3;
-	obj1.setdata(3, 4);
-	obj2.setdata(5, 6);
-	obj3 = obj1 + obj2;
-	obj3.showdata();
+	test t1, t2;
+	cout << "Enter t1 object a value: ";
+	t1.gets();
+	cout << "Enter t2 object a vlaue: ";
+	t2.gets();
+	t1 == t2;
 	return 0;
 }
