@@ -1,23 +1,37 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-class sample {
-	int a, b;
-	friend void display(sample);
+class test2;
+class test1 {
+	int a;
 public:
-	sample() {
-		a = 0;
-		b = 0;
+	void geta() {
+		cout << "Enter a value: ";
+		cin >> a;
 	}
+	friend void big(test1, test2);
 };
-void display(sample s) {
-	s.a = 10;
-	s.b = 20;
-	cout << "a = " << s.a << endl;
-	cout << "b = " << s.b << endl;
+class test2 {
+	int b;
+public:
+	void getb() {
+		cout << "Enter b value: ";
+		cin >> b;
+	}
+	friend void big(test1, test2);
+};
+void big(test1 t1, test2 t2) {
+	if (t1.a > t2.b)
+		cout << "a is big";
+	else if (t2.b > t1.a)
+		cout << "b is big";
+	else
+		cout << "Both are equal";
 }
 int main() {
-	sample s;
-	display(s);
-	return 0;
+	test1 t1;
+	test2 t2;
+	t1.geta();
+	t2.getb();
+	big(t1, t2);
 }
