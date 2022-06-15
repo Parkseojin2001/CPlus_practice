@@ -1,53 +1,38 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-class student {
-	int id;
-	char name[20];
-public:
-	void getstudent() {
-		cout << "Enter Student name: ";
-		cin >> name;
-		cout << "ID: ";
-		cin >> id;
-	}
-	void putstudent() {
-		cout << "Name: " << name << endl;
-		cout << "ID: " << id << endl;
-	}
-};
-class marks {
+class A {
 protected:
-	int m1, m2, m3;
+	int no;
 public:
-	void getmarks() {
-		cout << "Enter three marks: ";
-		cin >> m1 >> m2 >> m3;
-	}
-	void putmarks() {
-		cout << "M1: " << m1 << endl;
-		cout << "M2: " << m2 << endl;
-		cout << "M3: " << m3 << endl;
+	void getno() {
+		cout << "Enter No: ";
+		cin >> no;
 	}
 };
-class result :public student, public marks {
-	int total;
-	float average;
+class B :public A {
 public:
-	void show() {
-		total = m1 + m2 + m3;
-		average = total / 3.0;
-		cout << "Total: " << total << endl;
-		cout << "Average: " << average << endl;
+	void square() {
+		int sq;
+		sq = no * no;
+		cout << "square of the number: ";
+		cout << sq << endl;
+	}
+};
+class C :public A {
+public:
+	void cube() {
+		int cube;
+		cube = no * no * no;
+		cout << "Cude of number is: " << cube << endl;
 	}
 };
 int main() {
-	result obj;
-	obj.getstudent();
-	obj.getmarks();
-	obj.putstudent();
-	obj.putmarks();
-	obj.show();
+	B bobj;
+	C cobj;
+	bobj.getno();
+	bobj.square();
+	cobj. getno();
+	cobj.cube();
 	return 0;
-
 }
