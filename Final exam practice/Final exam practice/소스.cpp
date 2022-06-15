@@ -1,24 +1,24 @@
 #pragma warning(disable:4996)
 #include <iostream>
-#include <string.h>
 using namespace std;
-class student {
-	int id;
-	char name[30];
+class test1 {
+	int a, b;
 public:
-	friend void operator>>(istream& in, student& s);
-	friend void operator<<(ostream& out, student& s);
+	friend class test2;
+	void getab() {
+		cin >> a >> b;
+	}
 };
-void operator>>(istream& in, student& s) {
-	cout << "Enter student ID and name: ";
-	in >> s.id >> s.name;
-}
-void operator<<(ostream& out, student& s) {
-	out << "ID: " << s.id << endl;
-	out << "Name: " << s.name;
-}
+class test2 {
+public:
+	void putab(test1 t1) {
+		cout << t1.a << t1.b << endl;
+	}
+};
 int main() {
-	student s;
-	cin >> s;
-	cout << s;
+	test1 t1;
+	test2 t2;
+	t1.getab();
+	t2.putab(t1);
+	return 0;
 }
