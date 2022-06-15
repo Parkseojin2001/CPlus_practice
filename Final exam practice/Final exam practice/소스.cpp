@@ -17,23 +17,23 @@ public:
 		cout << "Name: " << name << endl;
 	}
 };
-class computer :public student {
+class computer :private student {
 	float height, weight;
 public:
 	void getphysical() {
+		getstudent();
 		cout << "Enter student height and weight: ";
 		cin >> height >> weight;
 	}
 	void putphysical() {
+		putstudent();
 		cout << "Height: " << height << endl;
 		cout << "Weight: " << weight << endl;
 	}
 };
 int main() {
 	computer obj;
-	obj.getstudent();
 	obj.getphysical();
-	obj.putstudent();
 	obj.putphysical();
 	return 0;
 }
