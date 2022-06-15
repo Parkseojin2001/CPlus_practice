@@ -1,26 +1,23 @@
 #pragma warning(disable:4996)
 #include <iostream>
 using namespace std;
-class test {
-	int a;
+class sample {
+	int a, b;
+	friend void display(sample);
 public:
-	test() {
+	sample() {
 		a = 0;
-	}
-	void operator++() {
-		a++;
-	}
-	void operator--() {
-		a--;
-	}
-	void show() {
-		cout << "a: " << a << endl;
+		b = 0;
 	}
 };
+void display(sample s) {
+	s.a = 10;
+	s.b = 20;
+	cout << "a = " << s.a << endl;
+	cout << "b = " << s.b << endl;
+}
 int main() {
-	test t;
-	++t;
-	t.show();
-	--t;
-	t.show();
+	sample s;
+	display(s);
+	return 0;
 }
