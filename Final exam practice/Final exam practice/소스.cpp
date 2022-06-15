@@ -4,22 +4,23 @@ using namespace std;
 class test {
 	int a;
 public:
-	void gets() {
-		cin >> a;
+	test() {
+		a = 0;
 	}
-	void operator==(test t2) {
-		if (a == t2.a)
-			cout << "Objects are equal";
-		else
-			cout << "Object are not equal";
+	void operator++() {
+		a++;
+	}
+	void operator--() {
+		a--;
+	}
+	void show() {
+		cout << "a: " << a << endl;
 	}
 };
 int main() {
-	test t1, t2;
-	cout << "Enter t1 object a value: ";
-	t1.gets();
-	cout << "Enter t2 object a vlaue: ";
-	t2.gets();
-	t1 == t2;
-	return 0;
+	test t;
+	++t;
+	t.show();
+	--t;
+	t.show();
 }
